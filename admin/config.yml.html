@@ -1,0 +1,32 @@
+# Configuration DecapBridge
+backend:
+  name: git-gateway
+  repo: Nea-dev04/aryam-clinic
+  branch: main
+  identity_url: https://auth.decapbridge.com/sites/bd0924de-036d-46bb-a67b-8ad170fbec1f
+  gateway_url: https://gateway.decapbridge.com
+
+  commit_messages:
+    create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+site_url: https://aryam-clinic.vercel.app
+
+# --- PARTIE OBLIGATOIRE POUR LE CMS ---
+media_folder: "img"
+public_folder: "/img"
+
+collections:
+  - name: "posts"
+    label: "Articles"
+    folder: "content/posts"
+    create: true
+    fields:
+      - {label: "Titre", name: "title", widget: "string"}
+      - {label: "Corps", name: "body", widget: "markdown"}
+      
